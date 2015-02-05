@@ -16,21 +16,25 @@ class User
 				$statu = $db->prepare("SELECT * FROM users WHERE username= :user  AND  passhash= :passhash");
 				$result = $statu->execute(array(
 					"username" => $username,
-					"passhash" => $b,
-					
+					"passhash" => md5($password),
 					)
 				);
 
-				$id=$result;
 
-				if($result)
+				
+
+				if(!$result)
 				{
 
-					return true;
-				}
-				else{
 					var_dump($db->errorInfo());
-
+					exit();
 				}
+				
+
+				if ($row=$statu->fetch(\PDO::FETCH_ASSOC))
+				{
+					return($row);
+				}
+				return 1;
 		}
 }
