@@ -11,11 +11,11 @@ class Signup
 
 	public static function __construct()
 	{
-		$this->db = new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , $sqluser , $sqlpass);
+		$this->db = self::getDB();
 	}
 	public static function getDB()
 	{
-		return new \PDO("mysql:dbname=blog;host=localhost" , "root" , "passkey");
+		return new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , $sqluser , $sqlpass);
 	}
 	public static function create($username , $passhash)
 	{
