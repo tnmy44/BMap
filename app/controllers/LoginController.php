@@ -1,20 +1,12 @@
 <?php 
-/*
-
-Controller for / requets
-
-*/
 
 namespace Controllers;
 
+use Models\User;
+
 class LoginController {
     
-    protected $twig;
-    
-    public function __construct() 
-    {
-        
-    }
+   
     
     public function post()
     {
@@ -31,5 +23,7 @@ class LoginController {
     		exit();
     	}
 
-     	$db = new \PDO("mysql:dbname=blog;host=localhost","root","passkey");
+    	$loginresult = User::login($_POST['username'],$_POST['password']);
+     	
     }
+}
