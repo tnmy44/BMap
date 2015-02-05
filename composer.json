@@ -8,9 +8,6 @@
   "require-dev": {
   },
   "autoload": {
-	  "psr-4": {
-	  //"Controllers\\": "app/controllers/",
-	  //"Models\\": "app/models/"
-	  }
+	 
   }
 }
