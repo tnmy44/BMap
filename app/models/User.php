@@ -1,12 +1,14 @@
 <?php
 namespace Models;
 
+require ("Cread.php");
+
 class User
 {
 		
 
 		public static function getDB(){
-			return new \PDO("mysql:dbname=blog;host=localhost","root","passkey");	
+			return new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , $sqluser , $sqlpass);	
 		}
 
 		public static function login($username,$password)

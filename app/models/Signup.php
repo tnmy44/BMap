@@ -2,6 +2,8 @@
 
 namespace Models;
 
+require ("Cread.php");
+
 class Signup
 
 {
@@ -9,7 +11,7 @@ class Signup
 
 	public static function __construct()
 	{
-		$this->db = new \PDO("mysql:dbname=blog;host=localhost" , "root" , "passkey");
+		$this->db = new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , $sqluser , $sqlpass);
 	}
 	public static function getDB()
 	{
