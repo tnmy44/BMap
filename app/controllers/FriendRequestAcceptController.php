@@ -3,19 +3,24 @@
 namespace Controller;
 use Models\FriendRequstAcceptHandler;
 
-class FriendRequstAcceptController
+class FriendRequestAcceptController
 {
 	public static function post()
 	{
-		$user1 = $_POST['user1'];
+		if(!isset($_SESSION['userid']) || !($_POST['user2']))
+		{
+			echo('{"result" : "7"}');
+			exit();
+		}
+		$user1 = $_SESSION['userid'];
 		$user2 = $_POST['user2'];
-		if($user1>$user2)
+		if($user1>$user2)		
 		{
 			$temp = $user1;
 			$user1 = $user2;
 			$user2 = $temp;
 		}
-		$updateRequest = FriendRequstAcceptHandler::update($user1 , $user2); 	
+		$updateRequest = FriendRequstAcceptHandler::acceptFR($user1 , $user2); 	
 		if($updateRequest)
 		{
 			//send "Friend Request accepted!You are now friends"

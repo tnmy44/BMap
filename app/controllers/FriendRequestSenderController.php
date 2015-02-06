@@ -3,7 +3,7 @@
 namespace Controller;
 use Models\FriendRequstHandler;
 
-class FriendRequstSenderController
+class FriendRequestSenderController
 {
 	public static function __construct()
 	{
