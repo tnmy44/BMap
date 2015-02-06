@@ -1,0 +1,26 @@
+App sends POST to /notifications
+no body for now
+
+---------------------------------
+
+controller returns:
+{"result":"n1",
+"people":[
+{
+	"userid":"34",		//id of some person
+	"relationcode":"x"		
+},{},{}]
+}
+
+where
+n1=
+0:everything is fine
+7:error
+
+x=
+0: not friends									// that also means x will never be 0 (if u dont know why, ask TT)
+1: the other person has sent you friend request
+2: the other person has accepted your friend request	// you two are friends then
+
+
+

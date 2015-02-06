@@ -1,0 +1,20 @@
+relations table:
+user1	user2	status
+
+
+where
+
+user1, user2 are id of the users.
+
+user1 MUST BE LESS THAN user2		// or else there might be two entries for same combination of users.
+
+
+
+
+status=
+stored in 'status' column of 'relations' table
+
+0:not friends 				//same as the absence of the column, which also means that status should never be 0, but still.
+1:user1 has sent friend request
+2:user2 has sent friend request
+3:FRIENDS

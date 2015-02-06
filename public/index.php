@@ -7,4 +7,6 @@ Toro::serve(array(
 	"/login" => "Controllers\\LoginController",
 	"/accfr" => "Controllers\\FriendRequstAcceptController",
 	"/sendfr" => "Controllers\\FriendRequstSenderController",
+	"/setprivacy" => "Controllers\\SetPrivacyController",
+	"/getuser" => "Controllers\\UserDetailsController",
 ));
