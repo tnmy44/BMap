@@ -1,6 +1,6 @@
 App sends POST to /accfr
 request body is
-user2=3
+user2=32
 
 ---------------------------------
 
@@ -13,4 +13,5 @@ n1=
 1:not friends & no fr to accept
 2:already friends
 3:u are the one who has sent FR -_-
+4:no such user2 exists
 7:error

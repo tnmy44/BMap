@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controllers;
 use Models\FriendRequstAcceptHandler;
 
 class FriendRequestAcceptController
@@ -14,16 +14,10 @@ class FriendRequestAcceptController
 		}
 		$user1 = $_SESSION['userid'];
 		$user2 = $_POST['user2'];
+
+		$accCode = FriendRequstAcceptHandler::acceptFR($user1 , $user2); 	
 		
-		$updateRequest = FriendRequstAcceptHandler::acceptFR($user1 , $user2); 	
-		if($updateRequest)
-		{
-			//send "Friend Request accepted!You are now friends"
-		} 
-		else
-		{
-			//send "There was some error in accepting the friend request. Please try again!";
-		}
+		echo('"result" : ' . $accCode . '"');
 
 	}
 }

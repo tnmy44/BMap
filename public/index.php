@@ -10,7 +10,7 @@ if(!isset($_SESSION['status'])){
 Toro::serve(array(
 	"/" => "Controllers\\HomeController",
 	"/login" => "Controllers\\LoginController",
-	"/accfr" => "Controllers\\FriendReqeuestAcceptController",
+	"/accfr" => "Controllers\\FriendRequestAcceptController",
 	"/sendfr" => "Controllers\\FriendRequestSenderController",
 	"/setprivacy" => "Controllers\\SetPrivacyController",
 	"/getuser" => "Controllers\\UserDetailsController",
