@@ -11,6 +11,7 @@ controller returns:
 "userid":"id",
 "username":"daddy",
 "name":"tanmay tiwari",
+"email":"seg@gwegj.com",
 "privacy":"3"		//see privacy documentations
 }
 
@@ -18,6 +19,7 @@ where
 n1=
 0:ok
 1:user already exists
+2:email already exists
 7:error
 
 id=

@@ -10,6 +10,7 @@ controller returns:
 "userid":"id",
 "username":"daddy",
 "name":"tanmay tiwari",
+"email":"emseg@gsgjle.com",
 "privacy":"3"		//see privacy documentations
 }
 
