@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controllers;
 use Models\FriendRequstAcceptHandler;
 
 class FriendRequestAcceptController

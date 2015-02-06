@@ -34,7 +34,7 @@ class FriendRequestAcceptHandler
 
 			$status = $row['status'];
 
-			if($status==0) return 2;
+			if($status==3) return 2;
 			if($status==1 || $status==2){
 				if($me==$status) return 3;
 
@@ -49,8 +49,8 @@ class FriendRequestAcceptHandler
 					return 7;
 			}
 			
-			if($status==3){
-				return 2;
+			if($status==0){
+				return 1;
 			}
 			
 
