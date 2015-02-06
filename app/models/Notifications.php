@@ -2,7 +2,7 @@
 
 namespace Models;
 
-public static function __construct()
+public  function __construct()
 {
 
 }

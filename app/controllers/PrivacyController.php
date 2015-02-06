@@ -3,7 +3,7 @@
 namespace Controllers;
 use Models\PrivacyUpdate;
 
-public static function __construct()
+public  function __construct()
 {
 		
 }

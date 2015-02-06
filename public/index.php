@@ -15,3 +15,4 @@ Toro::serve(array(
 	"/setprivacy" => "Controllers\\SetPrivacyController",
 	"/getuser" => "Controllers\\UserDetailsController",
 ));
+?>

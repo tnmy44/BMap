@@ -5,7 +5,7 @@ namespace Models;
 
 class FriendRequestHandler
 {
-	public static function __construct()
+	public  function __construct()
 	{
 
 	}
