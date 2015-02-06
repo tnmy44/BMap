@@ -39,4 +39,18 @@ class User
 				}
 				return 1;
 		}
+
+		public static function  getUser($userid)
+		{
+				$db = self::getDB();
+				$statu = $db->prepare("SELECT * FROM users WHERE id= :id");
+
+				$statu->bindValue(':id', $userid, \PDO::PARAM_INT);
+				
+
+				$result = $statu->execute();
+				
+	
+		}
+
 }

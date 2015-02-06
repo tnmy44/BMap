@@ -1,0 +1,16 @@
+App sends POST to /sendfr
+request body is
+user2=3
+
+---------------------------------
+
+controller returns:
+{"result":"n1"}
+
+where
+n1=
+0:ok sent
+1:alreadysent
+2:already friends
+3:now friends(he had already sent)
+7:error

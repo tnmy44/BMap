@@ -1,0 +1,15 @@
+App sends POST to /accfr
+request body is
+user2=3
+
+---------------------------------
+
+controller returns:
+{"result":"n1"}
+
+where
+n1=
+0:ok accepted, now friends
+1:no fr to accept
+2:already friends
+7:error

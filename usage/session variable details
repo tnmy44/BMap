@@ -1,0 +1,5 @@
+$_SESSION['status']=x	//x=0 for not logged in, 1 for logged in
+// in case x=1 :
+$_SESSION['userid']=32
+$_SESSION['name']=full name
+$_SESSION['username']=username

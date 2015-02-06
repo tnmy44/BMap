@@ -1,0 +1,24 @@
+App sends POST to /signup
+request body is
+username=daddy&password=daddy123&name=tanmay%20tiwari&			// where 32 is userid of user,daddy123 is password
+
+---------------------------------
+
+controller returns:
+{
+"result":"n1",
+// if result is 0
+"userid":"id",
+"username":"daddy",
+"name":"tanmay tiwari",
+"privacy":"3"		//see privacy documentations
+}
+
+where
+n1=
+0:ok
+1:user already exists
+7:error
+
+id=
+user's new id 		(store it locally)

@@ -1,0 +1,24 @@
+App sends POST to /getuser
+request body is
+userid=22		//22 is THAT user's id
+
+---------------------------------
+
+
+controller returns:
+{
+"result":"n1",
+"userid":"id",
+"username":"daddy",
+"name":"tanmay tiwari",
+"privacy":"3"		//see privacy documentations
+}
+
+where
+n1=
+0:ok
+1:no such user
+7:error
+
+id=
+userid of user 			(store it locally)

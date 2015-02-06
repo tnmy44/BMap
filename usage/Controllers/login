@@ -1,0 +1,24 @@
+App sends POST to /login
+request body is
+username=daddy&password=daddy123			// where daddy is username of user,daddy123 is password
+
+---------------------------------
+
+controller returns:
+{
+"result":"n1",
+"userid":"id",
+"username":"daddy",
+"name":"tanmay tiwari",
+"privacy":"3"		//see privacy documentations
+}
+
+where
+n1=
+0:ok logged in
+1:no such user
+2:wrong password
+7:error
+
+id=
+userid of user 			(store it locally)

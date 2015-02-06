@@ -1,0 +1,13 @@
+App sends POST to /setprivacy
+request body is
+privacy=2		//2 is privacy value. see privacy file for details
+
+---------------------------------
+
+controller returns:
+{"result":"n1"}
+
+where
+n1=
+0:ok
+7:error

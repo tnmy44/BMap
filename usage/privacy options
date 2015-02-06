@@ -1,0 +1,5 @@
+stored in 'privacy' column of 'users' table
+privacy=
+0:dont track me
+1:friends can track me
+2: everyone can track me
