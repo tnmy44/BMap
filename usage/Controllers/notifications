@@ -6,10 +6,16 @@ no body for now
 controller returns:
 {"result":"n1",
 "people":[
-{
-	"userid":"34",		//id of some person
-	"relationcode":"x"		
-},{},{}]
+	{
+		"userid":"34",		//id of some person
+		"username":"daddy",
+		"name":"tanmay tiwari"
+		"relationcode":"x"		
+	},
+	{
+		second person
+	},{third and so on}
+]
 }
 
 where
