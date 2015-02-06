@@ -10,6 +10,7 @@ controller returns:
 where
 n1=
 0:ok accepted, now friends
-1:no fr to accept
+1:not friends & no fr to accept
 2:already friends
+3:u are the one who has sent FR -_-
 7:error

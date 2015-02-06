@@ -14,12 +14,7 @@ class FriendRequestAcceptController
 		}
 		$user1 = $_SESSION['userid'];
 		$user2 = $_POST['user2'];
-		if($user1>$user2)		
-		{
-			$temp = $user1;
-			$user1 = $user2;
-			$user2 = $temp;
-		}
+		
 		$updateRequest = FriendRequstAcceptHandler::acceptFR($user1 , $user2); 	
 		if($updateRequest)
 		{
