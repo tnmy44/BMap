@@ -6,6 +6,12 @@ use Models\FriendRequestSenderHandler;
 class FriendRequestSenderController
 {
 	
+    public static function echoresultnexit($id)
+    {
+        echo('{"result" : "' . $id . '"}');
+        exit();
+    }   
+
 	public static function post()
 	{
 		
@@ -15,16 +21,8 @@ class FriendRequestSenderController
     	}
 
     	
-		$result = FriendRequestSenderHandler::sendFR($user1 , $user2); 	
-		if($updateRequest)
-		{
-			//send "Friend Request sent!"
-		}
-		else
-		{
-			//send "There was some error in sending the friend request. Please try again!";
-		}
-
+		FriendRequestSenderHandler::sendFR($user1 , $user2); 	
+		
 	}
 }
 ?>
