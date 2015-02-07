@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-use Models\FriendRequstSenderHandler;
+use Models\FriendRequestSenderHandler;
 
 class FriendRequestSenderController
 {
@@ -9,7 +9,13 @@ class FriendRequestSenderController
 	public static function post()
 	{
 		
-		$updateRequest = FriendRequstSenderHandler::sendFR($user1 , $user2); 	
+		if(!isset($_POST['user2']) || !($_POST['user2']))
+    	{
+    		self::echoresultnexit(7);
+    	}
+
+    	
+		$result = FriendRequestSenderHandler::sendFR($user1 , $user2); 	
 		if($updateRequest)
 		{
 			//send "Friend Request sent!"

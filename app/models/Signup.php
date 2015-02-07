@@ -7,19 +7,23 @@ require ("Cread.php");
 class Signup
 
 {
-	protected $db;
 
-	public static function __construct()
-	{
-		$this->db = self::getDB();
-	}
+    public static function echoresultnexit($id)
+    {
+        echo('{"result" : "' . $id . '"}');
+        exit();
+    }   
+
 	public static function getDB()
 	{
-		return new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , $sqluser , $sqlpass);
+
+			require ("Cread.php");
+			return new \PDO("mysql:dbname={$creden['database']};host={$creden['host']}" ,  $creden['username'] , $creden['password']);	
 	}
+
 	public static function create($username , $passhash)
 	{
-		//this piece of code to check whether there existed a user by same username previously
+		$db = self::getDB();
 		$checkQuery = $db->prepare("SELECT * FROM  users WHERE username = :username");
 		$checkQuery->bindValue(":username" ,  $username);
 		$checkQuery->execute();
@@ -27,7 +31,7 @@ class Signup
 		$row = $checkQuery->fetch(\PDO::FETCH_ASSOC);
 		if($row)
 		{
-			return 1
+			return 1;
 		}
 		else
 		{
