@@ -23,7 +23,12 @@ class LoginController {
 
     	if(!($_POST['username']) || !($_POST['password']))
     	{
+
     		self::echoresultnexit(1);
+
+    		echo "1";
+    		exit();
+
     	}
 
     	$loginresult = User::login($_POST['username'],$_POST['password']);
