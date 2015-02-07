@@ -40,6 +40,11 @@ class HomeController {
         <button value='POST' onclick='send();'>haha</button>
         <div id='result' style="border:1px solid; width:500px; height:500px;">
         </div>
+        <div id='result' style="border:1px solid; width:500px; height:500px;">
+        ?>
+        vardump($_SESSION);
+        <?php
+        </div>
         </body>
         </html>
         <?php

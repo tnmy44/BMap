@@ -37,22 +37,22 @@ class FriendRequestSenderHandler
 		$checkQuery->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
 		$checkQuery->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
 		if(!($checkQuery->execute())) 
-			echoresultnexit(7);
+			self::echoresultnexit(7);
 
 
 
 		$row = $checkQuery->fetch(\PDO::FETCH_ASSOC);
 
-
+		
 
 		if($row){
 			if($row['status']==3)
-				echoresultnexit (2);
+				self::echoresultnexit (2);
 
 			if($me==1)
 			{
 				if($row['status']==1)
-					echoresultnexit(1);		//you have already sent fr
+					self::echoresultnexit(1);		//you have already sent fr
 				if($row['status']==2)
 
 					// he had sent. now make them friends.
@@ -60,21 +60,21 @@ class FriendRequestSenderHandler
 					$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
 					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
 					if(!($checkQuery->execute())) 
-						echoresultnexit(7);
-					echoresultnexit(3);
+						self::echoresultnexit(7);
+					self::echoresultnexit(3);
 			}
 			else
 			{
 				if($row['status']==2)
-					echoresultnexit(1);
+					self::echoresultnexit(1);
 				if($row['status']==1)
 					// he had sent. now make them friends.
 					$statement = $db->prepare("UPDATE relations SET status = 1 WHERE user1 = :user1 AND user2 = :user2");
 					$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
 					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
 					if(!($checkQuery->execute())) 
-						echoresultnexit(7);
-					echoresultnexit(3);
+						self::echoresultnexit(7);
+					self::echoresultnexit(3);
 
 			}
 			
@@ -90,11 +90,11 @@ class FriendRequestSenderHandler
 
 			if($result)
 			{
-				echoresultnexit(0);
+				self::echoresultnexit(0);
 			}
 			else
 			{
-				echoresultnexit(7);
+				self::echoresultnexit(7);
 			}
 		}
 	}

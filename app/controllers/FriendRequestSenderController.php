@@ -21,7 +21,7 @@ class FriendRequestSenderController
     	}
 
     	
-		FriendRequestSenderHandler::sendFR($user1 , $user2); 	
+		FriendRequestSenderHandler::sendFR($_SESSION['userid'] , $_POST['user2']);
 		
 	}
 }
