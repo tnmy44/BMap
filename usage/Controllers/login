@@ -18,7 +18,7 @@ where
 n1=
 0:ok logged in
 1:no such user or wrong password
-
+2:already logged in(maybe from some other account), so ask user to log out first
 7:error
 
 id=

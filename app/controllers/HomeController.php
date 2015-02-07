@@ -38,7 +38,13 @@ class HomeController {
         <input id='url' type='text' placeholder='url' value='login/'>
         <input id='body' type='text' placeholder='body' value='username=tnmy44&password=daddy'>
         <button value='POST' onclick='send();'>haha</button>
-        <div id='result' style="border:1px solid; width:500px; height:500px;">
+        <div id='result' style="border:1px solid; width:500px; height:200px;">
+        </div>
+        <div id='result' style="border:1px solid; width:500px; height:200px;">
+        <?php
+        
+        var_dump($_SESSION);
+        ?>
         </div>
         </body>
         </html>

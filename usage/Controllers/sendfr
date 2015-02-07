@@ -13,4 +13,5 @@ n1=
 1:alreadysent
 2:already friends
 3:now friends(he had already sent)
+4:cant send fr to yourself
 7:error

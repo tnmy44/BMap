@@ -17,6 +17,8 @@ class LoginController {
     {
 
     	
+        if($_SESSION['status']=1)
+            self::echoresultnexit(2);
 
     	if(!isset($_POST['username']) || !isset($_POST['password']))
     	{
@@ -38,7 +40,7 @@ class LoginController {
         $_SESSION['userid']= $userinfo['userid'];
 
     	echo('{"result" : ' . 0 . '",userid" : "' .  $userinfo['userid'] .  '","username" : "' .  
-    		$userinfo['username'] .  '","name" : "' .  $userinfo['name'] .  '","email" : "' .  $userinfo['email'] . 
+    		$userinfo['username'] .  '","name" : "' .  $userinfo['name']  . 
     		 '","privacy" : "' .  $userinfo['privacy'] .  '"}');
      	
     }
