@@ -1,15 +1,21 @@
 <?php
-include("Cread.php");
+
 
 namespace Models;
 
 class FriendRequestAcceptHandler
 {
 
+    
+
 	public static function getDB()
 	{
-		return new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , "{$sqluser}" , "$sqlpass");
+
+			require ("Cread.php");
+			return new \PDO("mysql:dbname={$creden['database']};host={$creden['host']}" ,  $creden['username'] , $creden['password']);	
 	}
+
+	
 
 	public static function acceptFR($user1 , $user2)
 	{

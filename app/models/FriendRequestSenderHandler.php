@@ -99,10 +99,8 @@ class FriendRequestSenderHandler
 			if($result)
 			{
 				self::echoresultnexit(0);
-			}$statement = $dbself::getDB()->prepare("UPDATE relations SET  status = '3' WHERE user1 = :user1 AND user2 = :user2");
-					
-					
-					var_dump((isset($statement)));
+
+			}
 			else
 			{
 				self::echoresultnexit(7);

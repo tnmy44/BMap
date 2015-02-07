@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-use Models\FriendRequstAcceptHandler;
+use Models\FriendRequestAcceptHandler;
 
 class FriendRequestAcceptController
 {
@@ -15,7 +15,7 @@ class FriendRequestAcceptController
 		$user1 = $_SESSION['userid'];
 		$user2 = $_POST['user2'];
 
-		$accCode = FriendRequstAcceptHandler::acceptFR($user1 , $user2); 	
+		$accCode = FriendRequestAcceptHandler::acceptFR($user1 , $user2); 	
 		
 		echo('"result" : ' . $accCode . '"');
 
