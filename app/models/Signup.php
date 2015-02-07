@@ -21,7 +21,7 @@ class Signup
 			return new \PDO("mysql:dbname={$creden['database']};host={$creden['host']}" ,  $creden['username'] , $creden['password']);	
 	}
 
-	public static function create($username , $passhash)
+	public static function create($username , $passhash , $name , $privacy)
 	{
 		$db = self::getDB();
 		$checkQuery = $db->prepare("SELECT * FROM  users WHERE username = :username");
@@ -37,10 +37,12 @@ class Signup
 		{
 			$passhash = md5($passhash);
 			$db = self::getDB();
-			$statement = $db->prepare("INSERT INTO users (username , passhash) VALUES(:username, :passhash)");
+			$statement = $db->prepare("INSERT INTO users (username , passhash , name , privacy) VALUES(:username, :passhash , :name , :privacy)");
 			$result = $statement->execute(array(
 				"username" => $username , 
-				"passhash" => $passhash));
+				"passhash" => $passhash,
+				"name" => $name , 
+				"privacy" => $privacy));
 			if($result)
 				return 0;
 			else
