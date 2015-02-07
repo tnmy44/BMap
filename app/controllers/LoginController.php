@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php 
 
 namespace Controllers;
@@ -10,35 +9,34 @@ class LoginController {
 
     public static function echoresultnexit($id)
     {
-        echo('"result" : "' . $id . '"');
+        echo('{"result" : "' . $id . '"}');
         exit();
     }   
     
     public function post()
     {
 
+    	
+
     	if(!isset($_POST['username']) || !isset($_POST['password']))
     	{
-    		self::echoresultnexit(1);
+    		self::echoresultnexit(7);
     	}
 
     	if(!($_POST['username']) || !($_POST['password']))
     	{
 
-    		self::echoresultnexit(1);
-
-    		echo "1";
-    		exit();
-    	}
-
-    	if(!($_POST['username']) || !($_POST['password']))
-    	{
-    		echo "1";
-    		exit();
+    		self::echoresultnexit(7);
 
     	}
 
-    	$loginresult = User::login($_POST['username'],$_POST['password']);
+    	
+
+    	$userinfo = User::login($_POST['username'],$_POST['password']);
+
+    	echo('{"result" : ' . 0 . '",userid" : "' .  $userinfo['userid'] .  '","username" : "' .  
+    		$userinfo['username'] .  '","name" : "' .  $userinfo['name'] .  '","email" : "' .  $userinfo['email'] . 
+    		 '","privacy" : "' .  $userinfo['privacy'] .  '"}');
      	
     }
 

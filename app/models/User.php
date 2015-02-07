@@ -1,31 +1,42 @@
 <?php
 namespace Models;
 
-require ("Cread.php");
+
 
 class User
 {
-		
+    public static function echoresultnexit($id)
+    {
+        echo('{"result" : "' . $id . '"}');
+        exit();
+    }   
+
 
 		public static function getDB(){
-			return new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , "$sqluser" , "$sqlpass");	
+			
+			require ("Cread.php");
+			return new \PDO("mysql:dbname={$creden['database']};host={$creden['host']}" ,  $creden['username'] , $creden['password']);	
+
 		}
 
 		public static function login($username,$password)
 		{
 				
 				$db = self::getDB();
+				
+				
 				$passhash = md5($password);
-				$statment = $db->prepare("SELECT * FROM users WHERE username= :user  AND  passhash= :passhash");
-				$statment->bindValue(":user" , $username);
-				$statment->bindValue(":passhash" , $passhash);
+				$statement = $db->prepare("SELECT * FROM users WHERE username= :user  AND  passhash= :passhash");
+				$statement->bindValue(":user" , $username);
+				$statement->bindValue(":passhash" , $passhash);
 				$result = $statement->execute();
 
 				
 				if(!$result)
 				{
 
-					var_dump($db->errorInfo());
+					
+					echoresultnexit(7);
 					exit();
 				}
 				
@@ -34,7 +45,7 @@ class User
 				{
 					return($row);
 				}
-				return 1;
+				self::echoresultnexit(1);
 		}
 
 		public static function  getUser($userid)
