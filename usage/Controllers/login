@@ -17,8 +17,8 @@ controller returns:
 where
 n1=
 0:ok logged in
-1:no such user
-2:wrong password
+1:no such user or wrong password
+
 7:error
 
 id=
