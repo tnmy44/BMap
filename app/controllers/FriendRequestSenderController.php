@@ -1,19 +1,15 @@
 <?php
 
 namespace Controllers;
-use Models\FriendRequstHandler;
+use Models\FriendRequstSenderHandler;
 
 class FriendRequestSenderController
 {
-	public function __construct()
-	{
-		$loader = new \Twig_Loader_Filesystem(__DIR__ .'/../views');
-		$this->twig = new \Twig_Environment($loader);
-	}
+	
 	public static function post()
 	{
 		
-		$updateRequest = FriendRequstHandler::update($user1 , $user2); 	
+		$updateRequest = FriendRequstSenderHandler::sendFR($user1 , $user2); 	
 		if($updateRequest)
 		{
 			//send "Friend Request sent!"

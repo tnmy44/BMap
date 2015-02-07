@@ -13,10 +13,8 @@ class User
 
 
 		public static function getDB(){
+			
 			require ("Cread.php");
-			
-			
-			
 			return new \PDO("mysql:dbname={$creden['database']};host={$creden['host']}" ,  $creden['username'] , $creden['password']);	
 
 		}
