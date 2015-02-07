@@ -61,7 +61,7 @@ class FriendRequestSenderHandler
 					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
 					if(!($checkQuery->execute())) 
 						echoresultnexit(7);
-					echoresultnexit(0);
+					echoresultnexit(3);
 			}
 			else
 			{
@@ -69,6 +69,12 @@ class FriendRequestSenderHandler
 					echoresultnexit(1);
 				if($row['status']==1)
 					// he had sent. now make them friends.
+					$statement = $db->prepare("UPDATE relations SET status = 1 WHERE user1 = :user1 AND user2 = :user2");
+					$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
+					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
+					if(!($checkQuery->execute())) 
+						echoresultnexit(7);
+					echoresultnexit(3);
 
 			}
 			
