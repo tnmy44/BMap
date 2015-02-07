@@ -21,14 +21,10 @@ class LoginController {
     		self::echoresultnexit(1);
     	}
 
-<<<<<<< HEAD
     	if(!($_POST['username']) || !($_POST['password']))
     	{
     		self::echoresultnexit(1);
     	}
-=======
-    	
->>>>>>> 7938a201cad1fcf2a1ccbe0b0261bd229076848a
 
     	$loginresult = User::login($_POST['username'],$_POST['password']);
      	
