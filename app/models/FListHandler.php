@@ -3,7 +3,7 @@ namespace Models;
 
 
 
-class User
+class FListHandler
 {
     public static function echoresultnexit($id)
     {
@@ -19,16 +19,19 @@ class User
 
 		}
 
-		public static function login($username,$password)
+		public static function fetchList()
 		{
 				
 				$db = self::getDB();
 				
 				
-				$passhash = md5($password);
-				$statement = $db->prepare("SELECT * FROM users WHERE username= :user  AND  passhash= :passhash");
-				$statement->bindValue(":user" , $username);
-				$statement->bindValue(":passhash" , $passhash);
+				$user=$_SESSION['userid'];
+
+				$statement = $db->prepare("SELECT * FROM relations WHERE (user1 = :user1 AND status = 3) OR (user2 = :user2 AND status = 1)");
+				$statement->bindValue(":user1" , $user , \PDO::PARAM_INT);
+				$statement->bindValue(":user2" , $user , \PDO::PARAM_INT);
+
+
 				$result = $statement->execute();
 
 				

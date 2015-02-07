@@ -20,7 +20,7 @@ class NotificationController
 
 		$notificationsSent = Notifications::getNotifications($user);
 		$notificationsAccept = AcceptNotifications::getNotifications($user);
-		//some confusion here (to echo the json object here or at the front end)@tanmay?
+		//some confusion here (to echo the json object here or at the front end)@tanmay papa?
 
 	}
 }

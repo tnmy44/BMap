@@ -1,0 +1,29 @@
+App sends POST to /flist
+no body
+
+---------------------------------
+
+controller returns:
+{"result":"n1",
+
+// if n1 is 0 then :
+
+"people":[
+		{
+			"userid":"34",		//id of some person
+			"username":"daddy",
+			"name":"tanmay tiwari",
+			"privacy":"1"		//or 0 or 2
+			
+		},
+		{
+			second person
+		},{third and so on}
+	]
+}
+
+where
+n1=
+0:everything is fine
+7:error
+
