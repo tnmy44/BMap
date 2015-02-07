@@ -8,23 +8,20 @@ class User
 		
 
 		public static function getDB(){
-			return new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , $sqluser , $sqlpass);	
+			return new \PDO("mysql:dbname={$sqldb};host={$sqlhost}" , "$sqluser" , "$sqlpass");	
 		}
 
 		public static function login($username,$password)
 		{
 				
 				$db = self::getDB();
-				$statu = $db->prepare("SELECT * FROM users WHERE username= :user  AND  passhash= :passhash");
-				$result = $statu->execute(array(
-					"username" => $username,
-					"passhash" => md5($password),
-					)
-				);
-
+				$passhash = md5($password);
+				$statment = $db->prepare("SELECT * FROM users WHERE username= :user  AND  passhash= :passhash");
+				$statment->bindValue(":user" , $username);
+				$statment->bindValue(":passhash" , $passhash);
+				$result = $statement->execute();
 
 				
-
 				if(!$result)
 				{
 
@@ -33,7 +30,7 @@ class User
 				}
 				
 
-				if ($row=$statu->fetch(\PDO::FETCH_ASSOC))
+				if ($row=$statement->fetch(\PDO::FETCH_ASSOC))
 				{
 					return($row);
 				}
@@ -43,12 +40,12 @@ class User
 		public static function  getUser($userid)
 		{
 				$db = self::getDB();
-				$statu = $db->prepare("SELECT * FROM users WHERE id= :id");
+				$statement = $db->prepare("SELECT * FROM users WHERE id= :id");
 
-				$statu->bindValue(':id', $userid, \PDO::PARAM_INT);
+				$statement->bindValue(':id', $userid, \PDO::PARAM_INT);
 				
 
-				$result = $statu->execute();
+				$result = $statement->execute();
 				
 	
 		}
