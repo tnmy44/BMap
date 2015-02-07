@@ -24,9 +24,10 @@ class FriendRequestSenderHandler
 	{
 		$db = self::getDB();
 		$checkQuery = $db->prepare("SELECT * FROM relations WHERE user1 = :user1 AND user2  = :user2");
-		$user1 = $_SESSION['userid'];
-		$user2 = $_POST['user2'];
+		$user1 = intval($_SESSION['userid']);
+		$user2 = intval($_POST['user2']);
 		$me=1;
+		
 		if($user1>$user2)
 		{
 			$me=2;
@@ -56,7 +57,7 @@ class FriendRequestSenderHandler
 				if($row['status']==2)
 
 					// he had sent. now make them friends.
-					$statement = $db->prepare("UPDATE relations SET status = 1 WHERE user1 = :user1 AND user2 = :user2");
+					$statement = $db->prepare("UPDATE relations SET status = 3 WHERE user1 = :user1 AND user2 = :user2");
 					$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
 					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
 					if(!($checkQuery->execute())) 
@@ -69,7 +70,8 @@ class FriendRequestSenderHandler
 					self::echoresultnexit(1);
 				if($row['status']==1)
 					// he had sent. now make them friends.
-					$statement = $db->prepare("UPDATE relations SET status = 1 WHERE user1 = :user1 AND user2 = :user2");
+					echo "UPDATE relations SET status = 3 WHERE user1 = $user1 AND user2 = $user2";
+					$statement = $db->prepare("UPDATE relations SET status = 3 WHERE user1 = :user1 AND user2 = :user2");
 					$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
 					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
 					if(!($checkQuery->execute())) 

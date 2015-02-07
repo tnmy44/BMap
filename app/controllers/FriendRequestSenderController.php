@@ -20,6 +20,9 @@ class FriendRequestSenderController
     		self::echoresultnexit(7);
     	}
 
+    	if($_SESSION['userid'] == $_POST['user2']){
+			self::echoresultnexit(4);
+		}
     	
 		FriendRequestSenderHandler::sendFR($_SESSION['userid'] , $_POST['user2']);
 		
