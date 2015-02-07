@@ -9,7 +9,9 @@ class SignUpController
 	{
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$created = Signup::create($username , $password);
+		$name = $_POST['name'];
+		$privacy = $_POST['privacy'];
+		$created = Signup::create($username , $password  , $name , $privacy);
 		if($created==0)
 		{
 			echo ('{"result":"0"}');
