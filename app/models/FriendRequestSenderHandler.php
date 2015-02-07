@@ -81,20 +81,20 @@ class FriendRequestSenderHandler
 		}
 		else	
 		{
-			$statement = $db->prepare("UPDATE relations SET status = 1 WHERE user1 = :user1 AND user2 = :user2");
-			$result = $statement->execute(array(
-				"user1" => $user1,
-				"user2" => $user2
-				));
+			$statement = $db->prepare("INSERT INTO relations (user1,user2,status) VALUES (:user1,:user2,:status)");
+			$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
+			$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
+			$statement->bindValue(":status" , $me , \PDO::PARAM_INT);
+					
+			$result = $statement->execute();
+
 			if($result)
 			{
-				echo('"return":"0"');
-				return true;
+				echoresultnexit(0);
 			}
 			else
 			{
-				echo('"return":"7"');
-				return false;
+				echoresultnexit(7);
 			}
 		}
 	}
