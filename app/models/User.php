@@ -56,9 +56,14 @@ class User
 				$statement->bindValue(':id', $userid, \PDO::PARAM_INT);
 				
 
-				$result = $statement->execute();
-				
-	
+				$statement->execute();
+				$row = $statement->fetch(\PDO::fetch(FETCH_ASSOC));
+				echo ('{"result":"'.$row["id"].'",
+						"userid":"'.$row["id"].'",
+						"username":"'.$row["username"].'",
+						"name":"'.$row["name"].'",
+						"privacy":"'.$row["privacy"]'"			
+						}');
 		}
 
 }
