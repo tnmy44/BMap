@@ -1,0 +1,16 @@
+App sends POST to /logout
+no request body
+
+---------------------------------
+
+
+controller returns:
+{
+"result":"n1",
+}
+
+where
+n1=
+0:ok
+1:you are not logged in -_-
+7:some other error

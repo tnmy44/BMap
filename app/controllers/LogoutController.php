@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Models\FListHandler;
+
 
 class FListController {
     
@@ -15,9 +15,11 @@ class FListController {
     
     public function post()
     {
+        if($_SESSION[status]==0)
+            self::echoresultnexit(1);
 
-    	
-        FListHandler::fetchList();
+        session_destroy();
+        self::echoresultnexit(0);
     }
 
 }

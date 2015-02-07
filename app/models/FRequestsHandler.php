@@ -3,7 +3,7 @@ namespace Models;
 
 
 
-class User
+class FRequestsHandler
 {
     public static function echoresultnexit($id)
     {
@@ -19,56 +19,57 @@ class User
 
 		}
 
-		public static function login($username,$password)
+		public static function fetchRequests()
 		{
 				
 				$db = self::getDB();
 				
+				$list='{"result":"0","people":[';
 				
-				$passhash = md5($password);
-				$statement = $db->prepare("SELECT * FROM users WHERE username= :user  AND  passhash= :passhash");
-				$statement->bindValue(":user" , $username);
-				$statement->bindValue(":passhash" , $passhash);
+
+				
+				
+				$user=$_SESSION['userid'];
+
+
+				$statement = $db->prepare("SELECT * FROM relations WHERE user1 = :user1 AND status = 2");
+				$statement->bindValue(":user1" , $user , \PDO::PARAM_INT);
+				
 				$result = $statement->execute();
 
+				if(!$result)
+					self::echoresultnexit(7);
+
+				while ($row=$statement->fetch(\PDO::FETCH_ASSOC)){
+					$list = $list . User::getUser($row['user2']) . ',';
+				}
+
+
+				$statement = $db->prepare("SELECT * FROM relations WHERE user2 = :user2 AND status = 1");
+				$statement->bindValue(":user2" , $user , \PDO::PARAM_INT);
+
+				$result = $statement->execute();
 				
 				if(!$result)
-				{
-
-					
-					self::echoresultnexit(7);
-					exit();
-				}
-				
-
-				if ($row=$statement->fetch(\PDO::FETCH_ASSOC))
-				{
-					return($row);
-				}
-				self::echoresultnexit(1);
-		}
-
-		public static function  getUser($userid)
-		{
-				$db = self::getDB();
-				$statement = $db->prepare("SELECT * FROM users WHERE id= :id");
-
-				$statement->bindValue(':id', $userid, \PDO::PARAM_INT);
-				
-
-				$result = $statement->execute();
-				if (!$result)
 					self::echoresultnexit(7);
 
-				if(!$row = $statement->fetch(\PDO::fetch(FETCH_ASSOC)))
-					self::echoresultnexit(1);
+				while ($row=$statement->fetch(\PDO::FETCH_ASSOC)){
 
-				echo ('{"result":"'. 0 .'",
-						"userid":"'.$row["userid"].'",
-						"username":"'.$row["username"].'",
-						"name":"'.$row["name"].'",
-						"privacy":"'.$row["privacy"] . '" }');
+					$list = $list . User::getUser($row['user1']) . ',';
+				}
+
+
+				$l=strlen($list);
+				if($l>28)
+					$list = substr($list,0,$l-1);
+
+				$list = $list . ']}';
+				
+
+				
+				echo($list);
 				exit();
 		}
 
+		
 }

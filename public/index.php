@@ -17,7 +17,10 @@ Toro::serve(array(
 	"/getuser" => "Controllers\\UserDetailsController",
 	"/signup" => "Controllers\\SignupController",
 	"/getuser" => "Controllers\\UserDetailsController",
-	"/setprivacy" => "Controllers\\PrivacyController"
+	"/setprivacy" => "Controllers\\PrivacyController",
+	"/frequests" => "Controllers\\FRequestsController",
+	"/flist" => "Controllers\\FListController",
+
 
 ));
 ?>

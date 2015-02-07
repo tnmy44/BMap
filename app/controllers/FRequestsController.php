@@ -16,12 +16,7 @@ class FRequestsController {
     public function post()
     {
 
-    	$userinfo = FRequestsHandler::fetchRequests();
-
-
-    	echo('{"result" : ' . 0 . '",userid" : "' .  $userinfo['userid'] .  '","username" : "' .  
-    		$userinfo['username'] .  '","name" : "' .  $userinfo['name']  . 
-    		 '","privacy" : "' .  $userinfo['privacy'] .  '"}');
+    	FRequestsHandler::fetchRequests();
      	
     }
 
