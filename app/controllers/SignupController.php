@@ -7,22 +7,18 @@ class SignUpController
 	
 	public static function post()
 	{
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$name = $_POST['name'];
-		$privacy = $_POST['privacy'];
-		$created = Signup::create($username , $password  , $name , $privacy);
-		if($created==0)
+		if(!($_POST['username']) || !($_POST['username']) || !($_POST['username']) || !($_POST['username']) )
+			echo('{"result" : "7"}');
+		else
 		{
-			echo ('{"result":"0"}');
-		}
-		else if($created==1)
-		{
-			echo('{"result":"1"}');
-		}
-		else if($created==7)
-		{
-			echo('{"result":"7"}');
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$name = $_POST['name'];
+			$privacy = $_POST['privacy'];
+		
+			$created = Signup::create($username , $password  , $name , $privacy);
+			echo ('{"result":"$created"}');
+			
 		}
 	}
 }

@@ -23,6 +23,7 @@ class Signup
 
 	public static function create($username , $passhash , $name , $privacy)
 	{
+		
 		$db = self::getDB();
 		$checkQuery = $db->prepare("SELECT * FROM  users WHERE username = :username");
 		$checkQuery->bindValue(":username" ,  $username);
