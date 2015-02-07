@@ -14,5 +14,6 @@ Toro::serve(array(
 	"/sendfr" => "Controllers\\FriendRequestSenderController",
 	"/setprivacy" => "Controllers\\SetPrivacyController",
 	"/getuser" => "Controllers\\UserDetailsController",
+	"/signup" => "Controllers\\SignupController",
 ));
 ?>
