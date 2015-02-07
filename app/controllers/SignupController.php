@@ -17,7 +17,7 @@ class SignUpController
 			$privacy = $_POST['privacy'];
 		
 			$created = Signup::create($username , $password  , $name , $privacy);
-			echo ('{"result":"$created"}');
+			echo ('{"result":"' . $created . '"}');
 			
 		}
 	}

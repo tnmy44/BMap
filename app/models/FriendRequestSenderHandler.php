@@ -55,28 +55,34 @@ class FriendRequestSenderHandler
 				if($row['status']==1)
 					self::echoresultnexit(1);		//you have already sent fr
 				if($row['status']==2)
+				{
 
 					// he had sent. now make them friends.
-					$statement = $db->prepare("UPDATE relations SET status = 3 WHERE user1 = :user1 AND user2 = :user2");
+					
+					$statement = $db->prepare("UPDATE relations SET  status = '3' WHERE user1 = :user1 AND user2 = :user2");
 					$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
 					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
-					if(!($checkQuery->execute())) 
+					
+					if(!($statement->execute())) 
 						self::echoresultnexit(7);
 					self::echoresultnexit(3);
+				}
+
 			}
 			else
 			{
 				if($row['status']==2)
 					self::echoresultnexit(1);
 				if($row['status']==1)
-					// he had sent. now make them friends.
-					echo "UPDATE relations SET status = 3 WHERE user1 = $user1 AND user2 = $user2";
-					$statement = $db->prepare("UPDATE relations SET status = 3 WHERE user1 = :user1 AND user2 = :user2");
+				{
+					$statement = $db->prepare("UPDATE relations SET  status = '3' WHERE user1 = :user1 AND user2 = :user2");
 					$statement->bindValue(":user1" , $user1 , \PDO::PARAM_INT);
 					$statement->bindValue(":user2" , $user2 , \PDO::PARAM_INT);
-					if(!($checkQuery->execute())) 
+					
+					if(!($statement->execute())) 
 						self::echoresultnexit(7);
 					self::echoresultnexit(3);
+				}
 
 			}
 			
@@ -93,7 +99,10 @@ class FriendRequestSenderHandler
 			if($result)
 			{
 				self::echoresultnexit(0);
-			}
+			}$statement = $dbself::getDB()->prepare("UPDATE relations SET  status = '3' WHERE user1 = :user1 AND user2 = :user2");
+					
+					
+					var_dump((isset($statement)));
 			else
 			{
 				self::echoresultnexit(7);

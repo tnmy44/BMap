@@ -17,7 +17,7 @@ class LoginController {
     {
 
     	
-        if($_SESSION['status']=1)
+        if($_SESSION['status']==1)
             self::echoresultnexit(2);
 
     	if(!isset($_POST['username']) || !isset($_POST['password']))
