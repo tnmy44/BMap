@@ -15,11 +15,17 @@ Toro::serve(array(
 	"/sendfr" => "Controllers\\FriendRequestSenderController",
 	"/setprivacy" => "Controllers\\SetPrivacyController",
 	"/getuser" => "Controllers\\UserDetailsController",
+	"/flist" => "Controllers\\FListController",
 	"/signup" => "Controllers\\SignupController",
-	"/getuser" => "Controllers\\UserDetailsController",
+
+	"/logout" => "Controllers\\LogoutController",
 	"/setprivacy" => "Controllers\\PrivacyController",
 	"/frequests" => "Controllers\\FRequestsController",
 	"/flist" => "Controllers\\FListController",
+	"/updateloc" => "Controllers\\UpdateLocationController",
+	"/getlocs" => "Controllers\\GetLocationsController"
+
+
 
 
 ));

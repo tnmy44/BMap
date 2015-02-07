@@ -4,7 +4,7 @@ namespace Controllers;
 
 
 
-class FListController {
+class LogoutController {
     
 
     public static function echoresultnexit($id)
@@ -15,7 +15,7 @@ class FListController {
     
     public function post()
     {
-        if($_SESSION[status]==0)
+        if($_SESSION['status']==0)
             self::echoresultnexit(1);
 
         session_destroy();

@@ -1,0 +1,15 @@
+App sends POST to /updateloc
+lat=34.3303&lon=24.424
+//we will decide the units, but they will be same for both backend and frontend
+---------------------------------
+
+
+controller returns:
+{
+"result":"n1",
+}
+
+where
+n1=
+0:ok
+7:some error

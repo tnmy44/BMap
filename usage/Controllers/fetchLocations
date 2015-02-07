@@ -1,0 +1,29 @@
+App sends POST to /getlocs
+
+//we will decide the units, but they will be same for both backend and frontend
+---------------------------------
+
+
+controller returns:
+{
+"result":"n1",
+
+"people":[
+		{
+			"userid":"34",		//id of some person
+			"username":"daddy",
+			"name":"tanmay tiwari",
+			"statusx":"1"		//1 means friend 0 means not a friend(in case one has sent FR, still ZERO)
+			
+		},
+		{
+			second person
+		},{third and so on}
+	]
+}
+
+where
+n1=
+0:everything is fine
+7:error
+

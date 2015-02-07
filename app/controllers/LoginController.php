@@ -39,7 +39,7 @@ class LoginController {
         $_SESSION['status']=1;
         $_SESSION['userid']= $userinfo['userid'];
 
-    	echo('{"result" : ' . 0 . '",userid" : "' .  $userinfo['userid'] .  '","username" : "' .  
+    	echo('{"result" : "0" ,"userid" : "' .  $userinfo['userid'] .  '","username" : "' .  
     		$userinfo['username'] .  '","name" : "' .  $userinfo['name']  . 
     		 '","privacy" : "' .  $userinfo['privacy'] .  '"}');
      	
