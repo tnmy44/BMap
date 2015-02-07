@@ -51,7 +51,7 @@ class User
 		public static function  getUser($userid)
 		{
 				$db = self::getDB();
-				$statement = $db->prepare("SELECT * FROM users WHERE id= :id");
+				$statement = $db->prepare("SELECT * FROM users WHERE userid= :id");
 
 				$statement->bindValue(':id', $userid, \PDO::PARAM_INT);
 				
@@ -60,15 +60,12 @@ class User
 				if (!$result)
 					self::echoresultnexit(7);
 
-				if(!$row = $statement->fetch(\PDO::fetch(FETCH_ASSOC)))
+				if(!($row = $statement->fetch(\PDO::FETCH_ASSOC)))
 					self::echoresultnexit(1);
 
-				echo ('{"result":"'. 0 .'",
-						"userid":"'.$row["userid"].'",
-						"username":"'.$row["username"].'",
-						"name":"'.$row["name"].'",
-						"privacy":"'.$row["privacy"] . '" }');
-				exit();
+				return ('{"userid":"'.$row["userid"].'","username":"'.$row["username"].'","name":"'.$row["name"].'","privacy":"'.
+					$row["privacy"] .'" }');
+				
 		}
 
 }
