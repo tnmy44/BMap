@@ -16,7 +16,7 @@ class SignUpController
 		if(!isset($_POST['username']) || !isset($_POST['name']) || !isset($_POST['password'])|| !isset($_POST['privacy']))
 			self::echoresultnexit(7);
 
-		if(!($_POST['username']) || !($_POST['name']) || !($_POST['password'])|| !($_POST['privacy']))
+		if(!($_POST['username']) || !($_POST['name']) || !($_POST['password']))
 			self::echoresultnexit(7);
 
 		$username = $_POST['username'];
@@ -24,9 +24,9 @@ class SignUpController
 		$name = $_POST['name'];
 		$privacy = $_POST['privacy'];
 	
+		
+		
 		Signup::create($username , $password  , $name , $privacy);
-		
-		
 	
 	}
 }

@@ -13,7 +13,10 @@ controller returns:
 			"userid":"34",		//id of some person
 			"username":"daddy",
 			"name":"tanmay tiwari",
-			"statusx":"1"		//1 means friend 0 means not a friend(in case one has sent FR, still ZERO)
+			"status":"1",		//3 means friend, 0 means not a friend, 1 and 2 also mean not a friend
+			"latitude":"324.234.",
+			"longitude":"34.343",
+			"lastseen":"2015-02-08 05:30:26"
 			
 		},
 		{

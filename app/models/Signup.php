@@ -32,7 +32,7 @@ class Signup
 		$row = $checkQuery->fetch(\PDO::FETCH_ASSOC);
 		if($row)
 		{
-			return 1;
+			self::echoresultnexit(1);
 		}
 		else
 		{
@@ -42,12 +42,33 @@ class Signup
 			$result = $statement->execute(array(
 				"username" => $username , 
 				"passhash" => $passhash,
-				"name" => $name , 
+				"name" => $name, 
 				"privacy" => $privacy));
-			if($result)
-				return 0;
-			else
-				return 7;
+
+
+			if($result){
+
+				$statement = $db->prepare("SELECT * FROM users WHERE username= :username");
+				$statement->bindValue(":username" , $username);
+
+				if(! $statement->execute())
+					self::echoresultnexit(7);
+
+				if(!($row = $statement->fetch(\PDO::FETCH_ASSOC)))
+					self::echoresultnexit(7);
+
+				echo ('{"result":"'. 0 .'",
+				"userid":"'.$row['userid'].'",
+				"username":"'.$username.'",
+				"name":"'.$name.'",
+				"privacy":"'.$privacy . '" }');
+
+				$_SESSION['status']=1;
+				$_SESSION['userid']=$row['userid'];
+
+			}else{
+				self::echoresultnexit(7);
+			}
 		}
 	}
 }
